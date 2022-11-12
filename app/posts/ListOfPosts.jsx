@@ -2,6 +2,13 @@ import Link from 'next/link'
 import { LikeButton } from './LikeButton'
 
 const fetchPosts = () => {
+  //static
+  // return fetch('https://jsonplaceholder.typicode.com/posts', { cache: 'no-store' })
+
+  //ssr
+  // return fetch('https://jsonplaceholder.typicode.com/posts', { next: { revalidate: 60 } })
+
+  //isr
   return fetch('https://jsonplaceholder.typicode.com/posts', {
     next: {
       revalidate: 60
@@ -17,9 +24,9 @@ export async function ListOfPosts() {
     <article key={post.id}>
       <Link href='/posts/[id]' as={`/posts/${post.id}`}>
         <h2 style={{ color: '#09f' }}>{post.title}</h2>
-        <p>{post.body}</p>
-        <LikeButton id={post.id}/>
       </Link>
+      <p>{post.body}</p>
+      <LikeButton id={post.id}/>
     </article>
   ))
 }
