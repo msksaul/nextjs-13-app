@@ -1,10 +1,10 @@
-import { Counter } from './Counter';
+import { Counter } from './posts/Counter';
 
 export default function PostsLayout({ children }) {
   return (
     <div>
       <Counter />
-      <small>Home &bull; Posts</small>
+      <marquee>Home &bull; Posts</marquee>
       {children}
     </div>
   )
