@@ -1,6 +1,8 @@
 import Link from 'next/link'
 
-const fetchComments = (id) => {
+const fetchComments = async (id) => {
+  await new Promise(resolve => setTimeout(resolve, 3000))
+
   return fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`, {
     next: {
       revalidate: 60
