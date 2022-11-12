@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Image from 'next/image'
 
 const fetchComments = async (id) => {
   await new Promise(resolve => setTimeout(resolve, 3000))
@@ -21,6 +21,7 @@ export default async function Comments({ params }) {
     <ul>
       {comments.map(comment => (
         <li key={comment.id}>
+          <Image alt={comment.name} src={`https://unavatar.io/${comment.email}`} width='50' height='50'/>
           <h2>{comment.name}</h2>
           <p>{comment.body}</p>
         </li>
